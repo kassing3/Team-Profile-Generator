@@ -1,0 +1,2 @@
+// Employee's Properties, github <--Github Username, getGithub(), get Role()<-- Overridden to return Engineer
+// consider adding validation to ensure that user input provided is in the proper expected format
