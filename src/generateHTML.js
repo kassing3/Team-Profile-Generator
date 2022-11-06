@@ -1,22 +1,22 @@
-function renderManagerCard(manager) {
-    return `
-    <article class="card mb-3">
-        <section class=" card-header bg-transparent">
-            <h3 class=""> ${manager.name}</h3>
-            <h5 class="card-subtitle  mb-2 text-muted">Manager</h5>
-        </section>
-        <section class="card-body">
-        <p class="card-text">
-            <strong>ID: </strong>${manager.id}
-            <br>
-            <strong>Office Number: </strong> ${manager.officeNum}
-        </section>
-        <section class="card-footer bg-transparent">
-            <strong>Email: </strong>
-            <a href="mailto:${manager.email} ">${manager.email} </a>
-        </section>
-    </article>`
-};
+// function renderManagerCard(manager) {
+//     return `
+//     <article class="card mb-3">
+//         <section class=" card-header bg-transparent">
+//             <h3 class=""> ${manager.name}</h3>
+//             <h5 class="card-subtitle  mb-2 text-muted">Manager</h5>
+//         </section>
+//         <section class="card-body">
+//         <p class="card-text">
+//             <strong>ID: </strong>${manager.id}
+//             <br>
+//             <strong>Office Number: </strong> ${manager.officeNum}
+//         </section>
+//         <section class="card-footer bg-transparent">
+//             <strong>Email: </strong>
+//             <a href="mailto:${manager.email} ">${manager.email} </a>
+//         </section>
+//     </article>`
+// };
 
 function renderEngineerCard(engineer) {
     return `
