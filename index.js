@@ -1,4 +1,4 @@
-const Generator = require("./lib/Generator");
+const Generator = require("./lib/Generator")
 
 const generator = new Generator();
 
