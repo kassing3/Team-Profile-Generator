@@ -77,17 +77,6 @@ function renderInternCard(intern) {
                                 </article>`
 };
 
-function renderTeamSection (employee) {
-    if (engineer) {
-        return renderEngineerCard(engineer);
-    };
-
-    if (intern) {
-        return renderEngineerCard(engineer);
-    };
-    
-}
-
 function generateHTML(data) {
     const managerCardArr =[] ;
     const teamCardsArr = [];
@@ -117,7 +106,7 @@ function generateHTML(data) {
 
 
 
-    }
+    };
     
     return `<!DOCTYPE html>
 
