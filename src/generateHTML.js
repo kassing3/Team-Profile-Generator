@@ -1,66 +1,80 @@
-// function renderManagerCard(manager) {
-//     return `
-//     <article class="card mb-3">
-//         <section class=" card-header bg-transparent">
-//             <h3 class=""> ${manager.name}</h3>
-//             <h5 class="card-subtitle  mb-2 text-muted">Manager</h5>
-//         </section>
-//         <section class="card-body">
-//         <p class="card-text">
-//             <strong>ID: </strong>${manager.id}
-//             <br>
-//             <strong>Office Number: </strong> ${manager.officeNum}
-//         </section>
-//         <section class="card-footer bg-transparent">
-//             <strong>Email: </strong>
-//             <a href="mailto:${manager.email} ">${manager.email} </a>
-//         </section>
-//     </article>`
-// };
+function renderManagerCard(manager) {
+    return `
+                         <article class="card border-primary mb-3">
+                            <section class=" card-header bg-primary bg-gradient text-white">
+                                <h2 class="card-text text-center"> MANAGER</h2>
+                            </section>
+                            <section class="card-body bg-light bg-gradient">
+                                <p class="card-subtitle text-muted">Hello, my name is</p>
+                                <h3 class="card-title"> ${manager.name} </h3>
+                                <p class="card-text">
+                                    <i class="bi bi-building"></i>
+                                    <strong>Employee ID: </strong> ${manager.id}
+                                    <br>
+                                    <i class="bi bi-envelope"></i>
+                                    <strong>Email:> </strong>
+                                    <a href="mailto:${manager.email}">r${manager.email} </a>
+                                    <br>
+                                    <i class="bi bi-telephone"></i>
+                                    <strong>Office Number: </strong> 
+                                    ${manager.officeNum}
+                                </p>    
+                            </section>
+                        </article>`
+};
 
 function renderEngineerCard(engineer) {
     return `
-    <article class="col-12 col-sm-6">
-        <div class="card mb-3">
-            <section class=" card-header bg-transparent">
-                <h3 class="">${engineer.name}</h3>
-                <h5 class="card-subtitle  mb-2 text-muted">Engineer</h5>
-            </section>
-            <section class="card-body">
-            <p class="card-text">
-                <strong>ID: </strong>${engineer.id}
-                <strong>GitHub: </strong>
-                <a href="https://github.com/${engineer.github}" target="_blank">${engineer.github}</a>
-            </p>
-            </section>
-            <section class="card-footer bg-transparent">
-                <strong>Email: </strong>
-                <a href="mailto:${engineer.email}">${engineer.email}</a>
-            </section>
-        </div>
-    </article>`
+                                <article class="col">
+                                    <div class="card border-primary mb-3">
+                                        <section class=" card-header bg-primary bg-gradient text-white">
+                                            <h2 class="card-text text-center"> ENGINEER</h2>
+                                        </section>
+                                        <section class="card-body">
+                                            <p class="card-subtitle text-muted">Hello, my name is</p>
+                                            <h3 class="card-title">${engineer.name}</h3>
+                                            <p class="card-text">
+                                                <i class="bi bi-building"></i>
+                                                <strong>Employee ID: </strong>${engineer.id}
+                                                <br>
+                                                <i class="bi bi-envelope"></i>
+                                                <strong>Email: </strong>
+                                                <a href="mailto:${engineer.email}">${engineer.email}</a>
+                                                <br>
+                                                <i class="bi bi-github"></i>
+                                                <strong>Github: </strong>
+                                                <a href="https://github.com/${engineer.github}" target="_blank">${engineer.github}</a>
+                                            </p> 
+                                        </section>
+                                    </div>
+                                 </article>`
 };
 
 function renderInternCard(intern) {
     return `
-    <article class="col-12 col-sm-6">
-        <div class="card mb-3">
-            <section class=" card-header bg-transparent">
-                <h3 class="">${intern.name}</h3>
-                <h5 class="card-subtitle  mb-2 text-muted">Intern</h5>
-            </section>
-            <section class="card-body">
-            <p class="card-text">
-                <strong>ID: </strong>${intern.id}
-                <strong>School: </strong>${intern.school}
-            </p>
-            </section>
-            <section class="card-footer bg-transparent">
-                <strong>Email: </strong>
-                <a href="mailto:${intern.email}">${intern.email}</a>
-            </section>
-        </div>
-    </article>`
+                                <article class="col">
+                                    <div class="card border-primary mb-3">
+                                        <section class=" card-header bg-primary bg-gradient text-white">
+                                            <h2 class="card-text text-center">INTERN</h2>
+                                        </section>
+                                        <section class="card-body">
+                                            <p class="card-subtitle text-muted">Hello, my name is</p>
+                                            <h3 class="card-title">${intern.name}</h3>
+                                            <p class="card-text">
+                                                <i class="bi bi-building"></i>
+                                                <strong>Employee ID: </strong>${intern.id}
+                                                <br>
+                                                <i class="bi bi-envelope"></i>
+                                                <strong>Email: </strong>
+                                                <a href="mailto:${intern.email}">${intern.email} </a>
+                                                <br>
+                                                <i class="bi bi-book"></i>
+                                                <strong>School: </strong> 
+                                                ${intern.school}
+                                            </p> 
+                                        </section>
+                                    </div>
+                                </article>`
 };
 
 function renderTeamSection (employee) {
@@ -75,7 +89,36 @@ function renderTeamSection (employee) {
 }
 
 function generateHTML(data) {
+    const managerCardArr =[] ;
+    const teamCardsArr = [];
 
+    for (var i = 0; i < data.length; i++){
+
+        const employee = data[i];
+        const role = employee.getRole(); 
+        
+        if (role === 'Manager') {
+            const managerCard = renderManagerCard(employee);
+
+            managerCardArr.push(managerCard);
+        };
+
+        if (role === 'Engineer') {
+            const engineerCard = renderEngineerCard(employee);
+
+            teamCardsArr.push(engineerCard);
+        };
+
+        if (role === 'Intern') {
+            const internCard = renderInternCard(employee);
+
+            teamCardsArr.push(internCard);
+        };
+
+
+
+    }
+    
     return `<!DOCTYPE html>
 
     <html>
@@ -85,7 +128,8 @@ function generateHTML(data) {
             <title>Our Team</title>
     
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
-            <link rel="stylesheet" type="text/css" href="../dist/style.css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+            <link rel="stylesheet" type="text/css" href="../dist/style.css"/>
            
         </head>
     
@@ -99,113 +143,20 @@ function generateHTML(data) {
     
                 <div class="row p-3">
     
-                    <section class="col-md-4" id="managerSection">
+                    <section class="col-md-6 col-lg-4" id="managerSection">
     
-                        <article class="card mb-3">
-                            <section class=" card-header bg-transparent">
-                                <h3 class=""> ${Manager.name}</h3>
-                                <h5 class="card-subtitle  mb-2 text-muted">Manager</h5>
-                            </section>
-                            <section class="card-body">
-                            <p class="card-text">
-                                <strong>ID: </strong>${Manager.id}
-                                <br>
-                                <strong>Office Number: </strong> ${Manager.officeNum}
-                            </section>
-                            <section class="card-footer bg-transparent">
-                                <strong>Email: </strong>
-                                <a href="mailto:${Manager.email} ">${Manager.email} </a>
-                            </section>
-                        </article>
+                        ${managerCardArr}
     
                     </section>
     
-                    <section class="col-md-8">
+                    <section class="col-md-6 col-lg-8">
                         <div class="row" id="teamSection">
-    
-                            <article class="col-12 col-sm-6">
-                                <div class="card mb-3">
-                                    <section class=" card-header bg-transparent">
-                                        <h3 class=""> Name</h3>
-                                        <h5 class="card-subtitle  mb-2 text-muted">Engineer</h5>
-                                    </section>
-                                    <section class="card-body">
-                                      <p class="card-text">
-                                        <strong>ID: </strong>Insert ID #
-                                        <br>
-                                        <strong>GitHub: </strong> <a href="https://github.com/" target="_blank">Username</a>
-                                      </p>
-                                    </section>
-                                    <section class="card-footer bg-transparent">
-                                        <strong>Email: </strong>
-                                        <a href="mailto:email@example.com">Email Address </a>
-                                    </section>
-                                </div>
-                            </article>
-    
-                            <article class="col-12 col-sm-6">
-                                <div class="card mb-3">
-                                    <section class=" card-header bg-transparent">
-                                        <h3 class=""> Name</h3>
-                                        <h5 class="card-subtitle  mb-2 text-muted">Intern</h5>
-                                    </section>
-                                    <section class="card-body">
-                                      <p class="card-text">
-                                        <strong>ID: </strong>Insert ID #
-                                        <br>
-                                        <strong>School: </strong>School
-                                      </p>
-                                    </section>
-                                    <section class="card-footer bg-transparent">
-                                        <strong>Email: </strong>
-                                        <a href="mailto:email@example.com">Email Address </a>
-                                    </section>
-                                </div>
-                            </article>
-                            
-                            <article class="col-12 col-sm-6">
-                                <div class="card mb-3">
-                                    <section class=" card-header bg-transparent">
-                                        <h3 class=""> Name</h3>
-                                        <h5 class="card-subtitle  mb-2 text-muted">Intern</h5>
-                                    </section>
-                                    <section class="card-body">
-                                      <p class="card-text">
-                                        <strong>ID: </strong>Insert ID #
-                                        <br>
-                                        <strong>School: </strong>School
-                                      </p>
-                                    </section>
-                                    <section class="card-footer bg-transparent">
-                                        <strong>Email: </strong>
-                                        <a href="mailto:email@example.com">Email Address </a>
-                                    </section>
-                                </div>
-                            </article>
-                            
-                            <article class="col-12 col-sm-6">
-                                <div class="card mb-3">
-                                    <section class=" card-header bg-transparent">
-                                        <h3 class=""> Name</h3>
-                                        <h5 class="card-subtitle  mb-2 text-muted">Intern</h5>
-                                    </section>
-                                    <section class="card-body">
-                                      <p class="card-text">
-                                        <strong>ID: </strong>Insert ID #
-                                        <br>
-                                        <strong>School: </strong>School
-                                      </p>
-                                    </section>
-                                    <section class="card-footer bg-transparent">
-                                        <strong>Email: </strong>
-                                        <a href="mailto:email@example.com">Email Address </a>
-                                    </section>
-                                </div>
-                            </article>
-                            
-    
-    
-    
+                            <div class="col-md-12 col-lg-6">
+
+                                ${teamCardsArr.join(",")}
+
+                            </div>
+
                         </div>
                     </section>
                 </div>
@@ -214,7 +165,6 @@ function generateHTML(data) {
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
         </body>
     </html>`
-
 }
 
 
