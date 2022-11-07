@@ -25,7 +25,7 @@ function renderManagerCard(manager) {
 
 function renderEngineerCard(engineer) {
     return `
-                                <article class="col">
+                                <article class="col-md-12 col-lg-6">
                                     <div class="card border-primary mb-3">
                                         <section class=" card-header bg-primary bg-gradient text-white">
                                             <h2 class="card-text text-center"> ENGINEER</h2>
@@ -52,7 +52,7 @@ function renderEngineerCard(engineer) {
 
 function renderInternCard(intern) {
     return `
-                                <article class="col">
+                                <article class="col-md-12 col-lg-6">
                                     <div class="card border-primary mb-3">
                                         <section class=" card-header bg-primary bg-gradient text-white">
                                             <h2 class="card-text text-center">INTERN</h2>
@@ -151,11 +151,10 @@ function generateHTML(data) {
     
                     <section class="col-md-6 col-lg-8">
                         <div class="row" id="teamSection">
-                            <div class="col-md-12 col-lg-6">
 
-                                ${teamCardsArr.join(",")}
+                                ${teamCardsArr.join(" ")}
 
-                            </div>
+                           
 
                         </div>
                     </section>

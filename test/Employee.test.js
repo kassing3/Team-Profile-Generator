@@ -1,62 +1,33 @@
-// Name, Id, email, getName(), getID(), getEmail(), getRole()<--Returns 'Employee'
-// consider adding validation to ensure that user input provided is in the proper expected format
-
 const Employee = require("../lib/Employee");
 
-describe ( "Employee Class", () => {
+test("creates an employee objet", () => {
+    const employee = new Employee("Thomas", 91, 'thomas@gmail.com');
 
-    describe("Employee Class Constructor", () => {
-        it("should create an object with the provided arguments for name, id, and email", () => {
-            const employee = new Employee("Leslie", "123123", "les@comp.com");
+    expect(employee.name).toEqual(expect.any(String));
+    expect(employee.id).toEqual(expect.any(Number));
+    expect(employee.email).toEqual(expect.any(String));
+});
 
-            expect(store).toBe({name:"Leslie", id:"123123", email:"les@comp.com"});
-        })
-    });
+test('gets employee name', () => {
+    const employee = new Employee("Thomas", 91, 'thomas@gmail.com');
 
-    describe("getName", () => {
+    expect(employee.getName()).toEqual(expect.any(String));
+});
 
-        it("should return the given Employee's name from the employee's object", ()=> {
-            
+test("gets employee ID", () => {
+    const employee = new Employee("Thomas", 91, 'thomas@gmail.com');
 
-            expect(store.getName()).toBe("Leslie");
+    expect(employee.getId()).toEqual(expect.any(Number));
+});
 
-        });
+test('gets employee email', () => {
+    const employee = new Employee("Thomas", 91, 'thomas@gmail.com');
 
-    });
+    expect(employee.getEmail()).toEqual(expect.stringContaining(employee.email.toString()));
+});
 
-    describe("getId", () => {
+test("gets role of employee", () => {
+    const employee = new Employee("Thomas", 91, 'thomas@gmail.com');
 
-        it("should return the given Employee's id from the employee's object", ()=> {
-            
-
-            expect(store.getId()).toBe("123123");
-
-        });
-        
-    });
-
-    describe("getId", () => {
-
-        it("should return the given Employee's email from the employee's object", ()=> {
-            
-
-            expect(store.getEmail()).toBe("les@comp.com");
-
-        });
-        
-    });
-
-    describe("getRole", () => {
-
-        it("should return the sting 'Employee'", ()=> {
-            
-
-            expect(store.getRole()).toBe("les@comp.com");
-
-        });
-        
-    });
-
-
-
+    expect(employee.getRole()).toEqual("Employee");
 });
